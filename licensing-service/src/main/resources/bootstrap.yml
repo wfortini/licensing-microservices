@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: licensingservice  #Specify name application so that spring cloud config client knows which service is being locked up
+  profiles:
+    active:
+      default   #Specify profile the service should run
+  cloud:
+    config:
+      uri: http://localhost:8888   #Specify the location of the spring cloud config serverr
