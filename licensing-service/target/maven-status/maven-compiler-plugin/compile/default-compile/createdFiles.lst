@@ -1,3 +1,6 @@
-com/wsoft/licenses/model/License.class
 com/wsoft/licenses/controllers/LicenseServiceController.class
+com/wsoft/licenses/repository/LicenseRepository.class
+com/wsoft/licenses/model/License.class
+com/wsoft/licenses/config/ServiceConfig.class
+com/wsoft/licenses/services/LicenseService.class
 com/wsoft/licenses/Application.class

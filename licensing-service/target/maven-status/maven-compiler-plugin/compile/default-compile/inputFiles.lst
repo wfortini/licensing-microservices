@@ -1,3 +1,6 @@
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/model/License.java
+/home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/config/ServiceConfig.java
+/home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/repository/LicenseRepository.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/controllers/LicenseServiceController.java
+/home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/services/LicenseService.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/Application.java

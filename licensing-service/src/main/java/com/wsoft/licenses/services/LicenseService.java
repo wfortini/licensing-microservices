@@ -17,8 +17,8 @@ public class LicenseService {
     ServiceConfig config;
 
     public License getLicense(String organizationId,String licenseId) {
-        License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
-        return license.withComment(config.getExampleProperty());
+       // License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
+        return new License().withComment(config.getExampleProperty());
     }
 
     /**
