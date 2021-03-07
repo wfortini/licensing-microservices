@@ -37,7 +37,7 @@ spring:
      config:
        server:
          native:
+           searchLocations: file:///home/wellington/IdeaProjects/microservices/confsrv/src/main/resources/config/licensingservice
 #              #searchLocations: file://<chapter 3>/confsvr/src/main/resources/config/licensingservice,
 #               #                file://<chapter 3>confsvr/src/main/resources/config/organizationservice
-         searchLocations: classpath:/config/, classpath:/confsvr/src/main/resources/config/licensingservice
-         encrypt.enabled: false
+         #searchLocations: classpath:/config/, classpath:/confsvr/src/main/resources/config/licensingservice
