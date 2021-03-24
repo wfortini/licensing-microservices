@@ -54,6 +54,7 @@
             <version>42.2.14</version>
         </dependency>
 
+        <!-- spring Eureka dependency client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
