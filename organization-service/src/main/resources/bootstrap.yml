@@ -6,4 +6,8 @@ spring:
       default
   cloud:
     config:
-      enabled: true
+      uri: http://localhost:8888   #Specify the location of the spring cloud config serverr
+
+encrypt:
+  key: IMSYMMETRIC
+# Change profiles
