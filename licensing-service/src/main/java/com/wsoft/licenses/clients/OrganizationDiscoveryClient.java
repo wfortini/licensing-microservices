@@ -20,6 +20,9 @@ public class OrganizationDiscoveryClient {
 
     public Organization getOrganization(String organizationId) {
         RestTemplate restTemplate = new RestTemplate();
+        /*
+           Get a list of all the instances of organization services
+         */
         List<ServiceInstance> instances = discoveryClient.getInstances("organizationservice");
 
         if (instances.size()==0) return null;

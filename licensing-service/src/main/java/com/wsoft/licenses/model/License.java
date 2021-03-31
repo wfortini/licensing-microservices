@@ -110,4 +110,47 @@ public class License {
     public void setComment(String comment) {
         this.comment = comment;
     }
+    
+    public License withLicenseMax(Integer licenseMax){
+        this.setLicenseMax(licenseMax);
+        return this;
+    }
+
+    public License withLicenseAllocated(Integer licenseAllocated){
+        this.setLicenseAllocated(licenseAllocated);
+        return this;
+    }
+
+    public License withOrganizationName(String organizationName){
+        this.setOrganizationName(organizationName);
+        return this;
+    }
+
+    private void setOrganizationName(String organizationName) {
+    }
+
+    public License withContactName(String contactName){
+        this.setContactName(contactName);
+        return this;
+    }
+
+    private void setContactName(String contactName) {
+    }
+
+    public License withContactPhone(String contactPhone){
+        this.setContactPhone(contactPhone);
+        return this;
+    }
+
+    private void setContactPhone(String contactPhone) {
+    }
+
+    public License withContactEmail(String contactEmail){
+        this.setContactEmail(contactEmail);
+        return this;
+    }
+
+    private void setContactEmail(String contactEmail) {
+    }
+
 }
