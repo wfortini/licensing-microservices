@@ -54,7 +54,7 @@ public class LicenseService {
     }
 
     public License getLicense(String organizationId,String licenseId, String clientType) {
-        License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
+        License license = licenseRepository.findByOrganizationIdAndId(organizationId, licenseId);
 
         Organization org = retrieveOrgInfo(organizationId, clientType);
 
