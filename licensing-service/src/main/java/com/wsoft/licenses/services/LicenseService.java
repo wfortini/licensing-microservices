@@ -76,11 +76,41 @@ public class LicenseService {
         wait before failing to be 12 seconds.
 
      */
+    //@HystrixCommand(fallbackMethod = "buildFallbackLicenseList")
     @HystrixCommand(fallbackMethod = "buildFallbackLicenseList",
-            commandProperties = {@HystrixProperty(
-            name = "execution.isolation.thread.timeoutInMilliseconds",
-            value = "6000"
-    )})
+            threadPoolKey = "licenseByOrgThreadPool",
+            threadPoolProperties = /* The threadPoolProperties attribute lets you define and customize the behavior of the threadPool.*/
+                    {@HystrixProperty(name = "coreSize",value="30"), /*The coreSize attribute lets you define the maximum number of
+                                                                         threads in the thread pool.*/
+                            @HystrixProperty(name="maxQueueSize", value="10")}, /*The maxQueueSize lets you define a queue
+                                                                                that sits in front of your thread pool and
+                                                                                 that can queue incoming requests.*/
+                    commandProperties={
+                            /* Controls the amount of consecutive calls that must occur within a 10-second window before Hystrix
+                               will consider tripping the circuit breaker for the call.*/
+                            @HystrixProperty(name="circuitBreaker.requestVolumeThreshold", value="10"),
+
+                            /* is the percentage of calls that must fail (due to timeouts, an exception being thrown, or a HTTP 500 being returned) after the
+                               circuitBreaker.requestVolumeThreshold value has been passed before the circuit breaker it tripped. */
+                            @HystrixProperty(name="circuitBreaker.errorThresholdPercentage", value="75"),
+
+                            /* is the amount of time Hystrix will sleep once the circuit breaker is tripped before Hystrix will allow another call through to
+                                see if the service is healthy again. */
+                            @HystrixProperty(name="circuitBreaker.sleepWindowInMilliseconds", value="7000"),
+
+                            /* is used to control the size of the window that will be used by Hystrix to monitor for problems with a ser-
+                               vice call. The default value for this is 10,000 milliseconds (that is, 10 seconds).*/
+                            @HystrixProperty(name="metrics.rollingStats.timeInMilliseconds", value="15000"),
+
+                            /* controls the number of times statistics are collected in the window you’ve defined. Hystrix collects met-
+                               rics in buckets during this window and checks the stats in those buckets to determine
+                               if the remote resource call is failing.*/
+                            @HystrixProperty(name="metrics.rollingStats.numBuckets", value="5")}
+    )
+           // commandProperties=
+             //       {@HystrixProperty(
+               //             name="execution.isolation.thread.timeoutInMilliseconds",
+                 //           value="12000")})
     public List<License> getLicensesByOrg(String organizationId){
         randomlyRunLong(); // slow
 
@@ -116,9 +146,6 @@ public class LicenseService {
         }
     }
 
-    /*
-         Method fallback
-     */
     private List<License> buildFallbackLicenseList(String organizationId){
         List<License> fallbackList = new ArrayList<>();
         License license = new License()
