@@ -9,6 +9,9 @@ import com.wsoft.licenses.config.ServiceConfig;
 import com.wsoft.licenses.model.License;
 import com.wsoft.licenses.model.Organization;
 import com.wsoft.licenses.repository.LicenseRepository;
+import com.wsoft.licenses.utils.UserContextHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,9 @@ import java.util.UUID;
 
 @Service
 public class LicenseService {
+
+    private static final Logger logger = LoggerFactory.getLogger(LicenseService.class);
+
     @Autowired
     private LicenseRepository licenseRepository;
 
@@ -36,6 +42,9 @@ public class LicenseService {
 
     @HystrixCommand
     private Organization retrieveOrgInfo(String organizationId, String clientType){
+
+        logger.info("LicenseService.retrieveOrgInfo  Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
+
         Organization organization = null;
 
         switch (clientType) {
@@ -59,6 +68,9 @@ public class LicenseService {
     }
 
     public License getLicense(String organizationId,String licenseId, String clientType) {
+
+        logger.info("LicenseService.getLicense  Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
+
         License license = licenseRepository.findByOrganizationIdAndId(organizationId, licenseId);
 
         Organization org = retrieveOrgInfo(organizationId, clientType);
@@ -112,7 +124,9 @@ public class LicenseService {
                //             name="execution.isolation.thread.timeoutInMilliseconds",
                  //           value="12000")})
     public List<License> getLicensesByOrg(String organizationId){
+        logger.info("LicenseService.getLicensesByOrg  Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
         randomlyRunLong(); // slow
+
 
         return licenseRepository.findByOrganizationId( organizationId );
     }

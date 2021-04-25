@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient   /*  enable the application to use the Discovery client and Ribbon libraries */
 @SpringBootApplication
-//@EnableCircuitBreaker   /* Tells Spring Cloud you’re going to use Hystrix for your service */
+@EnableCircuitBreaker   /* Tells Spring Cloud you’re going to use Hystrix for your service */
 @EnableFeignClients
 public class Application {
 
