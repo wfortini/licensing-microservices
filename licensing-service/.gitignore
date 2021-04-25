@@ -1,22 +1,18 @@
-# Java class files
-*.class
-
-# Eclipse project files
+*~
+#*
+*#
+.#*
 .classpath
 .project
-.settings/
-
-# Intellij project files
-*.iml
-*.ipr
-*.iws
-.idea/
-
-.DS_Store/
-/target
-
-/target
+.settings
+.springBeans
+.gradle
+build
+bin
 /target/
-**/target/
-
-.DS_Store
+git.properties
+.idea
+*.iml
+.factorypath
+application-local.yml
+application.yml
