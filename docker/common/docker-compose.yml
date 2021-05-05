@@ -73,3 +73,17 @@ services:
         CONFIGSERVER_PORT: "8888"
         DATABASESERVER_PORT: "5432"
         ENCRYPT_KEY: "IMSYMMETRIC"
+
+  licensingservicestatic:
+    image: wfortini/tmx-licensing-service:springboot
+    ports:
+      - "8089:8089"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8089"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      CONFIGSERVER_PORT: "8888"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY: "IMSYMMETRIC"
