@@ -57,7 +57,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>com.wsoft.zuulsrv.EurekaServerApplication</start-class>
+        <start-class>com.wsoft.zuulsrv.ZuulServerApplication</start-class>
         <java.version>11</java.version>
         <docker.image.name>wfortini/tmx-zuulsrv</docker.image.name>
         <docker.image.tag>zuulsrv</docker.image.tag>

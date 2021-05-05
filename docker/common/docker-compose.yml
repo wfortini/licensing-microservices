@@ -12,6 +12,19 @@ services:
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       EUREKASERVER_PORT: "8761"
       ENCRYPT_KEY:       "IMSYMMETRIC"
+  zuulserver:
+    image: wfortini/tmx-zuulsrv:zuulsrv
+    ports:
+      - "5555:5555"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "5555"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
+      DATABASESERVER_PORT: "5432"
+      CONFIGSERVER_PORT: "8888"
+      ORGSERVERNEW_PORT: "8087"
   database:
     image: postgres:9.5
     ports:
