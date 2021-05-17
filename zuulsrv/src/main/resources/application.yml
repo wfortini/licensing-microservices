@@ -1,3 +1,13 @@
+server:
+  port: 5555
+
+#Setting logging levels
+logging:
+  level:
+    com.netflix: WARN
+    org.springframework.web: WARN
+    com.wsoft.zuulsrv: DEBUG
+
 eureka:
   instance:
     preferIpAddress: true

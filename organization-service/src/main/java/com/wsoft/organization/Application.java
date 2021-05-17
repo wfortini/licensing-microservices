@@ -14,11 +14,13 @@ import javax.servlet.Filter;
 @EnableCircuitBreaker
 public class Application {
 
+    /**
     @Bean
     public Filter userContextFilter() {
         UserContextFilter userContextFilter = new UserContextFilter();
         return userContextFilter;
     }
+    **/
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

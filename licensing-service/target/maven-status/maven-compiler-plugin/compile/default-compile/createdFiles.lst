@@ -11,6 +11,7 @@ com/wsoft/licenses/services/LicenseService.class
 com/wsoft/licenses/controllers/LicenseServiceController.class
 com/wsoft/licenses/hystrix/DelegatingUserContextCallable.class
 com/wsoft/licenses/repository/LicenseRepository.class
+com/wsoft/licenses/utils/UserContextInterceptor.class
 com/wsoft/licenses/utils/UserContextHolder.class
 com/wsoft/licenses/clients/OrganizationDiscoveryClient.class
 com/wsoft/licenses/Application.class
