@@ -61,6 +61,7 @@ public class LicenseService {
                 organization = organizationDiscoveryClient.getOrganization(organizationId);
                 break;
             default:
+                logger.info("using organizationRestClient ====================================");
                 organization = organizationRestClient.getOrganization(organizationId);
         }
 

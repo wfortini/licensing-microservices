@@ -4,6 +4,7 @@
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/services/LicenseService.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/hystrix/DelegatingUserContextCallable.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/hystrix/ThreadLocalAwareStrategy.java
+/home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/utils/UserContextInterceptor.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/model/Organization.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/clients/OrganizationDiscoveryClient.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/utils/UserContextFilter.java
