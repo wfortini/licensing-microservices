@@ -2,6 +2,8 @@ package com.wsoft.organization.controllers;
 
 import com.wsoft.organization.model.Organization;
 import com.wsoft.organization.services.OrganizationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "v1/organizations")
 public class OrganizationController {
 
+    private static final Logger logger = LoggerFactory.getLogger(OrganizationController.class);
     @Autowired
     private OrganizationService orgService;
 
