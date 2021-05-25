@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: organizationservice
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      uri: http://localhost:8888   #Specify the location of the spring cloud config serverr
+
+encrypt:
+  key: IMSYMMETRIC
+# Change profiles

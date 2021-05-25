@@ -19,7 +19,11 @@ public class OrganizationController {
 
     @RequestMapping(value="/{organizationId}",method = RequestMethod.GET)
     public Organization getOrganization(@PathVariable("organizationId") String organizationId) {
-        return orgService.getOrg(organizationId);
+        logger.debug("Looking up data for org {}",organizationId );
+
+        Organization org = orgService.getOrg(organizationId);
+        org.setContactName( "NEW::" + org.getContactName() );
+        return org;
     }
 
     @RequestMapping(value="/{organizationId}",method = RequestMethod.PUT)
