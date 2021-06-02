@@ -19,7 +19,7 @@ spring:
         encrypt.enabled: false
         git:
           uri: https://github.com/wfortini/config-repo/
-          searchPaths: licensingservice,organizationservice,zuulservice, specialroutesservice
+          searchPaths: licensingservice,organizationservice,zuulservice, specialroutesservice, authenticationservice
           username: 
           password: 
 
