@@ -58,7 +58,7 @@ services:
       SERVER_PORT: "8085"
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
-      AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
+      AUTHSERVER_URI:   "http://authenticationservice:8901/user"
       EUREKASERVER_PORT: "8761"
       CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
