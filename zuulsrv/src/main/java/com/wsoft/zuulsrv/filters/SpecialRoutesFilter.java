@@ -204,8 +204,8 @@ public class SpecialRoutesFilter extends ZuulFilter {
     @Override
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
-
-        AbTestingRoute abTestRoute = getAbRoutingInfo( filterUtils.getServiceId() );
+                                             // testra JWT Token
+        AbTestingRoute abTestRoute = null;  // getAbRoutingInfo( filterUtils.getServiceId() );
 
         if (abTestRoute!=null && useSpecialRoute(abTestRoute)) {
             String route = buildRouteString(ctx.getRequest().getRequestURI(),

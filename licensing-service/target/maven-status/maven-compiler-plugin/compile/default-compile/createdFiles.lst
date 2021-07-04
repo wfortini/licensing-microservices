@@ -2,6 +2,7 @@ com/wsoft/licenses/hystrix/ThreadLocalAwareStrategy.class
 com/wsoft/licenses/clients/OrganizationFeignClient.class
 com/wsoft/licenses/hystrix/ThreadLocalConfiguration.class
 com/wsoft/licenses/clients/OrganizationRestTemplateClient.class
+com/wsoft/licenses/security/JWTTokenStoreConfig.class
 com/wsoft/licenses/utils/UserContext.class
 com/wsoft/licenses/model/Organization.class
 com/wsoft/licenses/model/License.class

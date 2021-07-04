@@ -17,8 +17,8 @@ eureka:
 server:
   contextPath:   /auth
 
-security:
-  oauth2:
-    client:
-      client-id: eagleeye
-      client-secret: thisissecret
+#security:
+#  oauth2:
+#    client:
+#      client-id: eagleeye
+#      client-secret: thisissecret

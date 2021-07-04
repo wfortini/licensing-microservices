@@ -30,11 +30,8 @@ public class OrganizationRestTemplateClient {
          Balanced in class Application.class .
      */
 
-    //@Autowired
-    //RestTemplate restTemplate;
-
     @Autowired
-    OAuth2RestTemplate restTemplate;
+    RestTemplate restTemplate;
 
     public Organization getOrganization(String organizationId){
         /*
@@ -42,8 +39,8 @@ public class OrganizationRestTemplateClient {
          */
         ResponseEntity<Organization> restExchange =
                 restTemplate.exchange(
-                        "http://organizationservice/v1/organizations/{organizationId}",
-                        // "http://zuulserver:5555/api/organization/v1/organizations/{organizationId}",
+                        // "http://organizationservice/v1/organizations/{organizationId}",
+                         "http://zuulserver:5555/api/organization/v1/organizations/{organizationId}",
                         HttpMethod.GET,
                         null, Organization.class, organizationId);
 

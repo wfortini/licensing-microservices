@@ -8,8 +8,14 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 
-@Configuration
-public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
+// @Configuration
+public class OAuth2Config  {   // extends AuthorizationServerConfigurerAdapter {
+/**
+ * esta classe foi usada para realizar teste com spring cloud security sem usar JWT, agora ela foi substituida
+ * pela class JWTOAuth2Config
+ */
+
+    /**
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -31,4 +37,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 .authenticationManager(authenticationManager)
                 .userDetailsService(userDetailsService);
     }
+
+    **/
 }
