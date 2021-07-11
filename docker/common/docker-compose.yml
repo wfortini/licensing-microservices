@@ -45,6 +45,8 @@ services:
       CONFIGSERVER_URI: "http://configserver:8888"
       CONFIGSERVER_PORT:   "8888"
       DATABASESERVER_PORT: "5432"
+      AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
+      AUTHSERVER_PORT:   "8091"
       ENCRYPT_KEY:       "IMSYMMETRIC"
 
   organizationservice:
@@ -56,35 +58,51 @@ services:
       SERVER_PORT: "8085"
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      AUTHSERVER_URI:   "http://authenticationservice:8901/user"
       EUREKASERVER_PORT: "8761"
       CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
+      AUTHSERVER_PORT:   "8091"
       ENCRYPT_KEY: "IMSYMMETRIC"
 
-  orgservice-new:
-    image: wfortini/tmx-orgservice-new:springboot
+  authenticationservice:
+    image: wfortini/tmx-authentication-service:oauth2
     ports:
-      - "8087:8087"
+      - "8901:8901"
     environment:
       PROFILE: "default"
-      SERVER_PORT: "8087"
+      SERVER_PORT: "8901"
+      DATABASE_PORT: 5432
+      CONFIGSERVER_PORT: 8888
+      EUREKASERVER_PORT: 8761
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
-      EUREKASERVER_PORT: "8761"
-      DATABASESERVER_PORT: "5432"
-      CONFIGSERVER_PORT: "8888"
       ENCRYPT_KEY: "IMSYMMETRIC"
 
-  specialroutes-service:
-    image: wfortini/tmx-specialrouter-service:springboot
-    ports:
-      - "8910:8910"
-    environment:
-      PROFILE: "default"
-      SERVER_PORT: "8910"
-      CONFIGSERVER_URI: "http://configserver:8888"
-      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
-      EUREKASERVER_PORT: "8761"
-      DATABASESERVER_PORT: "5432"
-      CONFIGSERVER_PORT: "8888"
-      ENCRYPT_KEY: "IMSYMMETRIC"
+  #orgservice-new:
+  #  image: wfortini/tmx-orgservice-new:springboot
+  #  ports:
+  #    - "8087:8087"
+  #  environment:
+  #    PROFILE: "default"
+  #    SERVER_PORT: "8087"
+  #    CONFIGSERVER_URI: "http://configserver:8888"
+  #    EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+  #    EUREKASERVER_PORT: "8761"
+  #    DATABASESERVER_PORT: "5432"
+  #    CONFIGSERVER_PORT: "8888"
+  #    ENCRYPT_KEY: "IMSYMMETRIC"
+
+ # specialroutes-service:
+ #   image: wfortini/tmx-specialrouter-service:springboot
+ #   ports:
+ #     - "8910:8910"
+ #   environment:
+ #     PROFILE: "default"
+ #     SERVER_PORT: "8910"
+ #     CONFIGSERVER_URI: "http://configserver:8888"
+ #     EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+ #     EUREKASERVER_PORT: "8761"
+ #     DATABASESERVER_PORT: "5432"
+ #     CONFIGSERVER_PORT: "8888"
+ #     ENCRYPT_KEY: "IMSYMMETRIC"

@@ -2,15 +2,21 @@ package com.wsoft.licenses.clients;
 
 import com.netflix.discovery.DiscoveryClient;
 import com.wsoft.licenses.model.Organization;
+import com.wsoft.licenses.utils.UserContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
 public class OrganizationRestTemplateClient {
+
+    private static final Logger logger = LoggerFactory.getLogger(OrganizationRestTemplateClient.class);
 
       /*
          Invoking services with Ribbon-aware Spring RestTemplate
@@ -29,12 +35,15 @@ public class OrganizationRestTemplateClient {
     RestTemplate restTemplate;
 
     public Organization getOrganization(String organizationId){
+        logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
+        logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
         /*
            http://{applicationid}/v1/organizations/{organizationId}
          */
         ResponseEntity<Organization> restExchange =
                 restTemplate.exchange(
-                        "http://organizationservice/v1/organizations/{organizationId}",
+                        //http://organizationservice/v1/organizations/{organizationId}",
+                        "http://zuulserver:5555/api/organization/v1/organizations/{organizationId}",
                         HttpMethod.GET,
                         null, Organization.class, organizationId);
 
