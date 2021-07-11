@@ -11,6 +11,9 @@ import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Extending the JWT Token
+ */
 public class JWTTokenEnhancer implements TokenEnhancer {
 
     @Autowired
