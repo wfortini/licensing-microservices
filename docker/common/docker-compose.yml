@@ -47,6 +47,10 @@ services:
       DATABASESERVER_PORT: "5432"
       AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
       AUTHSERVER_PORT:   "8091"
+      KAFKASERVER_URI: "kafkaserver"
+      ZKSERVER_URI: "kafkaserver"
+      KAFKASERVER_PORT: "2181"
+      REDIS_PORT: "6379"
       ENCRYPT_KEY:       "IMSYMMETRIC"
 
   organizationservice:
@@ -59,10 +63,13 @@ services:
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       AUTHSERVER_URI:   "http://authenticationservice:8901/user"
+      KAFKASERVER_URI: "kafkaserver"
+      ZKSERVER_URI: "kafkaserver"
       EUREKASERVER_PORT: "8761"
       CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
       AUTHSERVER_PORT:   "8091"
+      KAFKASERVER_PORT:    "2181"
       ENCRYPT_KEY: "IMSYMMETRIC"
 
   authenticationservice:
@@ -79,6 +86,15 @@ services:
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       ENCRYPT_KEY: "IMSYMMETRIC"
 
+ redis:
+  image: redis:alpine
+  ports:
+    - 6379:6379
+ kafkaserver:
+    image: spotify/kafka
+    ports:
+      - 2181:2181
+      - 9092:9092
   #orgservice-new:
   #  image: wfortini/tmx-orgservice-new:springboot
   #  ports:
