@@ -1,3 +1,16 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+           destination: orgChangeTopic
+           content-type: application/json
+           group: licensingGroup
+        kafka:
+          binder:
+            zkNodes: localhost
+            brokers: localhost
+            replication-factor: 1
 eureka:
   instance:
     preferIpAddress: true

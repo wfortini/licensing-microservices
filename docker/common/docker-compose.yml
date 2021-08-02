@@ -85,16 +85,15 @@ services:
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       ENCRYPT_KEY: "IMSYMMETRIC"
-
- redis:
-  image: redis:alpine
-  ports:
+  redis:
+   image: redis:alpine
+   ports:
     - 6379:6379
- kafkaserver:
-    image: spotify/kafka
-    ports:
-      - 2181:2181
-      - 9092:9092
+  kafkaserver:
+   image: spotify/kafka
+   ports:
+     - 2181:2181
+     - 9092:9092
   #orgservice-new:
   #  image: wfortini/tmx-orgservice-new:springboot
   #  ports:

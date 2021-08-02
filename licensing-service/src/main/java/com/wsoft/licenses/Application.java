@@ -1,6 +1,7 @@
 package com.wsoft.licenses;
 
 import com.wsoft.licenses.config.ServiceConfig;
+import com.wsoft.licenses.events.model.OrganizationChangeModel;
 import com.wsoft.licenses.utils.UserContextInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
@@ -28,6 +32,11 @@ import java.util.List;
 @EnableCircuitBreaker   /* Tells Spring Cloud you’re going to use Hystrix for your service */
 @EnableFeignClients
 @EnableResourceServer
+@EnableBinding(Sink.class) /*
+                               Because the licensing service is a consumer of a message, you’re going to pass the
+                               @EnableBinding annotation the value Sink.class . This tells Spring Cloud Stream
+                                to bind to a message broker using the default Spring Sink interface.
+                           */
 public class Application {
 
     @Autowired
@@ -71,6 +80,11 @@ public class Application {
         }
 
         return template;
+    }
+
+    @StreamListener(Sink.INPUT)
+    public void loggerSink(OrganizationChangeModel orgChange) {
+        logger.debug("Received an event for organization id {}", orgChange.getOrganizationId());
     }
 
     public static void main(String[] args) {

@@ -30,3 +30,4 @@ spring:
         binder:
           zkNodes: localhost
           brokers: localhost
+          replication-factor: 1
