@@ -3,7 +3,7 @@ logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
-    com.thoughtmechanix: DEBUG
+    com.wsoft.organization: DEBUG
 
 eureka:
   instance:

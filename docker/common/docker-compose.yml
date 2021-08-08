@@ -90,7 +90,7 @@ services:
    ports:
     - 6379:6379
   kafkaserver:
-   image: spotify/kafka
+   image: wfortini21/kafka
    ports:
      - 2181:2181
      - 9092:9092
