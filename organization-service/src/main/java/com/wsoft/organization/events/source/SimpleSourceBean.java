@@ -30,6 +30,7 @@ public class SimpleSourceBean {
                 orgId,
                 UserContext.getCorrelationId());
 
-        source.output().send(MessageBuilder.withPayload(change).build());
+        boolean ok = source.output().send(MessageBuilder.withPayload(change).build());
+        logger.debug("Sending Kafka message {} send: {}", action, ok);
     }
 }

@@ -84,6 +84,7 @@ public class Application {
 
     @StreamListener(Sink.INPUT)
     public void loggerSink(OrganizationChangeModel orgChange) {
+        logger.info("Received an event for organization id {}", orgChange.getOrganizationId());
         logger.debug("Received an event for organization id {}", orgChange.getOrganizationId());
     }
 
