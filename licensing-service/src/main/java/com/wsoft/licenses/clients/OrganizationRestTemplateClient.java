@@ -58,21 +58,21 @@ public class OrganizationRestTemplateClient {
 
 
     public Organization getOrganization(String organizationId){
-        logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
-        logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
+        logger.info("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
+
         /*
            http://{applicationid}/v1/organizations/{organizationId}
          */
-        logger.debug("In Licensing Service.getOrganization: {}", UserContext.getCorrelationId());
+
 
         Organization org = checkRedisCache(organizationId);
 
         if (org!=null){
-            logger.debug("I have successfully retrieved an organization {} from the redis cache: {}", organizationId, org);
+            logger.info("I have successfully retrieved an organization {} from the redis cache: {}", organizationId, org);
             return org;
         }
 
-        logger.debug("Unable to locate organization from the redis cache: {}.", organizationId);
+        logger.info("Unable to locate organization from the redis cache: {}.", organizationId);
         ResponseEntity<Organization> restExchange =
                 restTemplate.exchange(
                         //http://organizationservice/v1/organizations/{organizationId}",
@@ -80,6 +80,12 @@ public class OrganizationRestTemplateClient {
                         HttpMethod.GET,
                         null, Organization.class, organizationId);
 
-        return restExchange.getBody();
+        /*Save the record from cache*/
+        org = restExchange.getBody();
+
+        if (org!=null) {
+            cacheOrganizationObject(org);
+        }
+        return org;
     }
 }
