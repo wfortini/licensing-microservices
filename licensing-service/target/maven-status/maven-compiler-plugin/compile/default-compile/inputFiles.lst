@@ -14,7 +14,9 @@
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/hystrix/ThreadLocalConfiguration.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/clients/OrganizationRestTemplateClient.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/controllers/LicenseServiceController.java
+/home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/events/handles/OrganizationChangeHandler.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/repository/OrganizationRedisRepository.java
+/home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/events/CustomChannels.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/clients/OrganizationFeignClient.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/Application.java
 /home/wellington/IdeaProjects/microservices/licensing-service/src/main/java/com/wsoft/licenses/security/JWTTokenStoreConfig.java

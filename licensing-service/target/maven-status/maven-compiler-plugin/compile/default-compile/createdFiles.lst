@@ -1,6 +1,8 @@
 com/wsoft/licenses/repository/OrganizationRedisRepositoryImpl.class
 com/wsoft/licenses/hystrix/ThreadLocalAwareStrategy.class
+com/wsoft/licenses/events/CustomChannels.class
 com/wsoft/licenses/hystrix/ThreadLocalConfiguration.class
+com/wsoft/licenses/events/handles/OrganizationChangeHandler.class
 com/wsoft/licenses/utils/UserContext.class
 com/wsoft/licenses/model/License.class
 com/wsoft/licenses/utils/UserContextFilter.class
