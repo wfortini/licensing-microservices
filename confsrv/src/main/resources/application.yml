@@ -20,7 +20,7 @@ spring:
         git:
           uri: https://github.com/wfortini/config-repo/
           searchPaths: licensingservice,organizationservice,zuulservice, specialroutesservice, authenticationservice
-          username:
+          username: wfortini
           password:
 
 

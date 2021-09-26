@@ -3,7 +3,7 @@ logging:
   level:
     com.netflix: WARN
     org.springframework.web: WARN
-    com.thoughtmechanix: DEBUG
+    com.wsoft.organization: DEBUG
 
 eureka:
   instance:
@@ -18,3 +18,16 @@ security:
   oauth2:
     resource:
       userInfoUri: http://localhost:8901/auth/user
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination:  orgChangeTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
+          replication-factor: 1

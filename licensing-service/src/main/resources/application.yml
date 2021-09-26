@@ -1,3 +1,16 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        inboundOrgChanges:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroup
+        kafka:
+          binder:
+            zkNodes: localhost
+            brokers: localhost
+            replication-factor: 1
 eureka:
   instance:
     preferIpAddress: true
@@ -12,4 +25,4 @@ eureka:
     level:
       com.netflix: WARN
       org.springframework.web: WARN
-      com.wsoft: DEBUG
+      com.wsoft.licenses: DEBUG
